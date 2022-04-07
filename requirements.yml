@@ -1,0 +1,8 @@
+---
+roles:
+  - name: Duologic.postgresql_repository
+  - name: geerlingguy.redis
+  - name: Duologic.postgresql_repository
+  - name: geerlingguy.postgresql
+collections:
+  - name: community.general
