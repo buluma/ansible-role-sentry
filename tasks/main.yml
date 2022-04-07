@@ -11,6 +11,7 @@
           - libffi-dev
           - libjpeg-dev
           - libxml2-dev
+          - libxmlsec1-dev
           - libxslt-dev
           - libyaml-dev
           - libpq-dev
@@ -32,6 +33,7 @@
           - libffi-devel
           - libjpeg-turbo-devel
           - libxml2-devel
+          - libxmlsec1-dev
           - libxslt-devel
           - libyaml-devel
           - libpqxx-devel
