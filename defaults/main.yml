@@ -22,4 +22,3 @@ host_delay_time: 20
 # Sentry Admin User [UPATE ADMIN USER EMAIL AND PASSWORD]
 sentry_admin_email: "admin@sentry.com"
 sentry_admin_password: "ADMIN"
-

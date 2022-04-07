@@ -4,7 +4,6 @@ dependencies: []
 galaxy_info:
   role_name: sentry
   author: Michael Buluma
-  role_name: sentry
   namespace: buluma
   description: Sentry installation with Python.
   license: "Apache-2.0"

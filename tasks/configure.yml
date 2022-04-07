@@ -2,8 +2,8 @@
 # Remove Docker
 
 - name: Remove Docker, docker-engine, docker.io
-  apt: 
-    name: "{{ item }}" 
+  apt:
+    name: "{{ item }}"
     state: absent
   with_items:
     - docker
@@ -27,26 +27,26 @@
   apt:
     name: ['python', 'python3', 'python-pip', 'python3-pip', 'python-setuptools', 'python-dev', 'build-essential', 'awscli']
     state: present
-  
+
 - name: Set Docker packages installation
   apt:
     name: ['apt-transport-https', 'ca-certificates', 'curl', 'gnupg-agent', 'software-properties-common']
     update_cache: "yes"
     state: present
-    cache_valid_time: "{{ apt_cache_valid_time|default(3600)|int }}"  
+    cache_valid_time: "{{ apt_cache_valid_time|default(3600)|int }}"
 
 - name: Create Docker group
   group:
     name: docker
     state: present
-  
+
 - name: Add user to docker group
   user:
     name: "{{ ansible_ssh_user }}"
     groups: ["docker"]
     append: yes
   ignore_errors: "{{ ansible_check_mode }}"
-  
+
 - name: Get Docker script file
   get_url:
     url: "{{ docker_sh_url }}"
@@ -83,16 +83,16 @@
     -newkey rsa:4096 -sha256 -keyout {{ item.key }} -out {{ item.cert }}
     creates={{ item.cert }}
   with_items: "{{ self_signed_certs }}"
-  
+
 - name: Install Nginx on Instance
-  apt: 
+  apt:
     name: nginx
     state: latest
 
 - name: Configure Nginx SSL on Instance
   template:
     src: etc/nginx/snippets/self-signed.conf.j2
-    dest: "{{ nginx_snippets_ssl }}/self-signed.conf"  
+    dest: "{{ nginx_snippets_ssl }}/self-signed.conf"
 
 - name: Configure Nginx on Instance
   template:
