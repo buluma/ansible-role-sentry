@@ -17,7 +17,7 @@ galaxy_info:
         - 7
     - name: Debian
       versions:
-        - stretch
+        - all
   galaxy_tags:
     - system
     - monitoring

@@ -1,115 +1,121 @@
-Duologic.sentry
-===============
+# [sentry](#sentry)
 
-[![Build Status](https://travis-ci.org/Duologic/ansible-role-sentry.svg?branch=master)](https://travis-ci.org/Duologic/ansible-role-sentry)
+Sentry installation with Python.
 
-This role configures and installs Sentry with Python.
+|GitHub|GitLab|Quality|Downloads|Version|Issues|Pull Requests|
+|------|------|-------|---------|-------|------|-------------|
+|[![github](https://github.com/buluma/ansible-role-sentry/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-sentry/actions)|[![gitlab](https://gitlab.com/buluma/ansible-role-sentry/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-sentry)|[![quality](https://img.shields.io/ansible/quality/)](https://galaxy.ansible.com/buluma/sentry)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/buluma/sentry)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-sentry.svg)](https://github.com/buluma/ansible-role-sentry/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-sentry.svg)](https://github.com/buluma/ansible-role-sentry/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-sentry.svg)](https://github.com/buluma/ansible-role-sentry/pulls/)|
 
-Requirements
------------
+## [Example Playbook](#example-playbook)
 
-You probaly want Postgresql and Redis to run Sentry, see Example Playbook
-
-NOTE: Provide the machine with enough memory (2GB+) as Sentry upgrade has a memory leak.
-(see [getsentry/sentry#8862](https://github.com/getsentry/sentry/issues/8862))
-
-Role Variables
---------------
-
-You probably want to generate a strong secret key:
-
-    sentry_secret_key: 'UNSAFE'
-
-You can install extra packages with pip in the virtualenv, for example the plugin bundle:
-
-    sentry_extra_pip_packages:
-      - 'sentry-plugins==9.0.0'
-
-The extra packages/plugins might need some extra configuration:
-
-    sentry_extra_conf_py: |
-        GITHUB_APP_ID = 'GitHub Application Client ID'
-        GITHUB_API_SECRET = 'GitHub Application Client Secret'
-        GITHUB_EXTENDED_PERMISSIONS = ['repo']
-
-You might want to set whether to run [cleanup](https://docs.sentry.io/server/cli/cleanup/)
-and the number of days to keep data for by setting:
-```yml
-sentry_schedule_cleanup: true # whether to schedule a cleanup. Default is true
-sentry_cleanup_days: 30 # the number of days to keep old data
-```
-Note that this does not delete metadata such as orgnanization and project configurations.
-
-
-See [defaults/main.yml](defaults/main.yml) for more configuration options.
-
-Example Playbook
-----------------
-
-```
+This example is taken from `molecule/default/converge.yml` and is tested on each push, pull request and release.
+```yaml
 ---
-- become: true
-  hosts: servers
-  tasks:
-    - name: Enable EPEL repo on EL for Redis role
-      yum: pkg=epel-release state=present
-      when: ansible_os_family == 'RedHat'
-    - import_role:
-        name: geerlingguy.redis
-    - import_role:
-        name: Duologic.postgresql_repository
-      vars:
-        postgres_repo_version: '9.5'
-    - import_role:
-        name: geerlingguy.postgresql
-      vars:
-        postgresql_hba_entries:
-            - {type: local, database: sentry, user: sentry, auth_method: trust}
-            - {type: local, database: all, user: postgres, auth_method: peer}
-        postgresql_databases:
-            - name: sentry
-        postgresql_users:
-            - name: sentry
-              db: sentry
-              role_attr_flags: SUPERUSER
-    - name: Flush handlers so services are restarted before Sentry installation
-      meta: flush_handlers
-    - import_role:
-        name: sentry
-      vars:
-        sentry_db_user: 'sentry'
-        sentry_secret_key: 'SAFE'
-        sentry_extra_pip_packages:
-            - 'sentry-plugins==9.0.0'
+- name: Converge
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - role: buluma.sentry
 ```
 
-Supported distributions
------------------------
 
-This project is tested on CentOS 7, Debian 9 and Ubuntu 18.04.
+## [Role Variables](#role-variables)
 
-Known issues with other distributions:
+The default values for the variables are set in `defaults/main.yml`:
+```yaml
+---
+sentry_version: '9.0.0'
+sentry_install_dir: '/srv/sentry'
+sentry_system_user: 'sentry'
+sentry_system_group: 'sentry'
+sentry_system_cron_hour: 3
+sentry_system_cron_minute: 0
+sentry_extra_pip_packages: []
 
-- CentOS 6: python2.7 not available
-- Ubuntu 16.04: redis-server not available
-- Debian 8: issues with cryptography (and possibly setuptools)
+# config.yml settigs
+sentry_mail_backend: 'dummy'
+sentry_mail_host: 'localhost'
+sentry_mail_port: 25
+sentry_mail_username: ''
+sentry_mail_password: ''
+sentry_mail_use_tls: false
+sentry_mail_from: 'root@localhost'
+sentry_mail_enable_replies: false
+sentry_mail_reply_hostname: ''
+sentry_mail_mailgun_api_key: ''
 
-See this [build](https://travis-ci.org/Duologic/ansible-role-sentry/builds/487380995).
+sentry_secret_key: 'UNSAFE'
+sentry_url_prefix: ''
 
-Testing
--------
-Create a python [virtualenv](https://docs.python-guide.org/dev/virtualenvs/) and run
-```sh
-pip install molecule docker-py
-molecule test
+sentry_redis_clusters:
+  default:
+    hosts:
+      0:
+        host: 127.0.0.1
+        port: 6379
+
+sentry_filestore_backend: 'filesystem'
+sentry_filestore_options:
+  location: '/tmp/sentry-files'
+
+# sentry.conf.py settings
+sentry_db_name: 'sentry'
+sentry_db_user: 'sentry'
+sentry_db_password: ''
+sentry_db_host: ''
+sentry_db_port: ''
+sentry_broker_url: 'redis://localhost:6379'
+sentry_behind_ssl_proxy: false
+sentry_web_host: '0.0.0.0'
+sentry_web_port: 9000
+sentry_auth_register: true
+# Extra configuration options, should be valid Python code
+sentry_extra_conf_py: ''
+
+# Cleanup
+sentry_schedule_cleanup: true
+sentry_cleanup_days: 30
 ```
 
-License
--------
+## [Requirements](#requirements)
 
-MIT
+- pip packages listed in [requirements.txt](https://github.com/buluma/ansible-role-sentry/blob/main/requirements.txt).
 
-Author Information
-------------------
 
-Jeroen Op 't Eynde, jeroen@simplistic.be
+## [Context](#context)
+
+This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://buluma.co.ke/) for further information.
+
+Here is an overview of related roles:
+
+![dependencies](https://raw.githubusercontent.com/buluma/ansible-role-sentry/png/requirements.png "Dependencies")
+
+## [Compatibility](#compatibility)
+
+This role has been tested on these [container images](https://hub.docker.com/u/buluma):
+
+|container|tags|
+|---------|----|
+|ubuntu|bionic|
+|el|7|
+|debian|all|
+
+The minimum version of Ansible required is 2.7, tests have been done to:
+
+- The previous version.
+- The current version.
+- The development version.
+
+
+
+If you find issues, please register them in [GitHub](https://github.com/buluma/ansible-role-sentry/issues)
+
+## [License](#license)
+
+Apache-2.0
+
+## [Author Information](#author-information)
+
+[Michael Buluma](https://buluma.github.io/)
