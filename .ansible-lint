@@ -16,3 +16,7 @@ skip_list:  # or 'skip_list' to silence them completely
   - experimental  # all rules tagged as experimental
   - no-handler  # Tasks that run when changed should likely be handlers
   - unnamed-task  # All tasks should be named
+  - command-instead-of-shell  # Use shell only when shell functionality is required.
+  - fqcn-builtins  # Use FQCN for builtin actions.
+  - no-changed-when  # Commands should not change things if nothing needs doing.
+  - yaml  # Violations reported by yamllint.

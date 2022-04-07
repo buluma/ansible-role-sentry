@@ -54,8 +54,8 @@
 
 - name: Check virtualenv path
   ansible.builtin.shell:
-    cmd: ls -l /usr/bin
-    chdir: /usr/bin/
+      cmd: ls -l /usr/bin
+      chdir: /usr/bin/
 
 - name: Create a virtualenv and install Sentry with pip
   ansible.builtin.pip:
