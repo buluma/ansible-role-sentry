@@ -1,4 +1,2 @@
 ---
-- src: geerlingguy.redis
-- src: geerlingguy.postgresql
-- src: Duologic.postgresql_repository
+- src: buluma.bootstrap

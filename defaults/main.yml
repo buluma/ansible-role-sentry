@@ -1,52 +1,25 @@
 ---
-sentry_version: '9.0.0'
-sentry_install_dir: '/srv/sentry'
-sentry_system_user: 'sentry'
-sentry_system_group: 'sentry'
-sentry_system_cron_hour: 3
-sentry_system_cron_minute: 0
-sentry_extra_pip_packages: []
+# defaults var for role_sentry
 
-# config.yml settigs
-sentry_mail_backend: 'dummy'
-sentry_mail_host: 'localhost'
-sentry_mail_port: 25
-sentry_mail_username: ''
-sentry_mail_password: ''
-sentry_mail_use_tls: false
-sentry_mail_from: 'root@localhost'
-sentry_mail_enable_replies: false
-sentry_mail_reply_hostname: ''
-sentry_mail_mailgun_api_key: ''
+docker_sh_url: "https://get.docker.com"
+getsentry_url_v20_12_1: "https://codeload.github.com/getsentry/onpremise/tar.gz/20.12.1"
 
-sentry_secret_key: 'UNSAFE'
-sentry_url_prefix: ''
+getsentry_domain_url: "sentry.testonpremise.com"
+gensentry_local_port: 9000
 
-sentry_redis_clusters:
-  default:
-    hosts:
-      0:
-        host: 127.0.0.1
-        port: 6379
+# SSL
+self_signed_certs:
+  - key: /etc/ssl/private/{{ getsentry_domain_url }}.key
+    cert: /etc/ssl/certs/{{ getsentry_domain_url }}.crt
 
-sentry_filestore_backend: 'filesystem'
-sentry_filestore_options:
-  location: '/tmp/sentry-files'
+# Nginx
+nginx_snippets_ssl: "/etc/nginx/snippets"
+nginx_site_default: "/etc/nginx/sites-available"
 
-# sentry.conf.py settings
-sentry_db_name: 'sentry'
-sentry_db_user: 'sentry'
-sentry_db_password: ''
-sentry_db_host: ''
-sentry_db_port: ''
-sentry_broker_url: 'redis://localhost:6379'
-sentry_behind_ssl_proxy: false
-sentry_web_host: '0.0.0.0'
-sentry_web_port: 9000
-sentry_auth_register: true
-# Extra configuration options, should be valid Python code
-sentry_extra_conf_py: ''
 
-# Cleanup
-sentry_schedule_cleanup: true
-sentry_cleanup_days: 30
+host_delay_time: 20
+
+# Sentry Admin User [UPATE ADMIN USER EMAIL AND PASSWORD]
+sentry_admin_email: "admin@sentry.com"
+sentry_admin_password: "ADMIN"
+
