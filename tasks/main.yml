@@ -57,7 +57,7 @@
       name: sentry
       version: '{{ sentry_version }}'
       virtualenv: '{{ sentry_install_dir }}'
-      # virtualenv_python: /usr/bin/python3.6
+      virtualenv_python: /usr/bin/python3.10.1
       state: present
   register: _virtualenv_install
   until: _virtualenv_install is success
@@ -68,7 +68,7 @@
   ansible.builtin.pip:
       name: '{{ sentry_extra_pip_packages }}'
       virtualenv: '{{ sentry_install_dir }}'
-      # virtualenv_python: /usr/bin/python3.6
+      virtualenv_python: /usr/bin/python3.10.1
       state: present
   register: _virtualenv_extra
   until: _virtualenv_extra is success
