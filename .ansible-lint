@@ -11,3 +11,8 @@ exclude_paths:
   - ./molecule/default/collections.yml
   - ./.tox
   - ./.cache
+
+skip_list:  # or 'skip_list' to silence them completely
+  - experimental  # all rules tagged as experimental
+  - no-handler  # Tasks that run when changed should likely be handlers
+  - unnamed-task  # All tasks should be named
