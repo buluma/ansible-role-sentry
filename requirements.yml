@@ -4,5 +4,6 @@ roles:
   - name: geerlingguy.redis
   - name: Duologic.postgresql_repository
   - name: geerlingguy.postgresql
+  - name: Duologic.sentry
 collections:
   - name: community.general
