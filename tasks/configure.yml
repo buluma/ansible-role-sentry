@@ -25,7 +25,8 @@
 
 - name: Install python and pip
   apt:
-    name: ['python', 'python3', 'python-pip', 'python3-pip', 'python-setuptools', 'python-dev', 'build-essential', 'awscli']
+    # name: ['python', 'python3', 'python-pip', 'python3-pip', 'python-setuptools', 'python-dev', 'build-essential', 'awscli']
+    name: ['python3', 'python3-pip', 'python3-setuptools', 'python3-dev', 'build-essential', 'awscli']
     state: present
 
 - name: Set Docker packages installation
