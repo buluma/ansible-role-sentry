@@ -52,6 +52,11 @@
       group: '{{ sentry_system_group }}'
       state: present
 
+- name: Check virtualenv path
+  ansible.builtin.shell:
+    cmd: ls -l /usr/bin
+    chdir: /usr/bin/
+
 - name: Create a virtualenv and install Sentry with pip
   ansible.builtin.pip:
       name: sentry
