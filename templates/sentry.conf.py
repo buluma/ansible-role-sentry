@@ -19,6 +19,9 @@ DATABASES = {
     }
 }
 
+# Set path GEOIP_PATH_MMDB
+GEOIP_PATH_MMDB = ‘/etc/sentry/GeoLite2-City.mmdb’
+
 # You should not change this setting after your database has been created
 # unless you have altered all schemas first
 SENTRY_USE_BIG_INTS = True
