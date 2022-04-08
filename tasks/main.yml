@@ -3,7 +3,7 @@
   apt: name={{ packages }} state=present
   vars:
       packages:
-          - virtualenv
+          - python3-virtualenv
           - python3-setuptools
           - python3-dev
           - libxslt1-dev
@@ -27,7 +27,7 @@
   yum: name={{ packages }} state=present
   vars:
       packages:
-          - virtualenv
+          - python3-virtualenv
           - python3-setuptools
           - python3-devel
           - pkg-config

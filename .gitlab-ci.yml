@@ -14,8 +14,6 @@ molecule:
   retry: 1
   parallel:
     matrix:
-      - image: "docker-ubuntu-systemd"
-        tag: "bionic"
       - image: "ubuntu"
         tag: "22.04"
       - image: "ubuntu"
