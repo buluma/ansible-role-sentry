@@ -5,6 +5,7 @@
   gather_facts: yes
   vars:
     sentry_secret_key: 'SAFE'
+    GEOIP_PATH_MMDB: '/geoip/GeoLite2-City.mmdb'
 
   roles:
     - role: ansible-role-sentry
