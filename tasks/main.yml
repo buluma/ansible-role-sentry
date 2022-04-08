@@ -8,10 +8,12 @@
           - python3-dev
           - libxslt1-dev
           - gcc
+          - pkg-config
           - libffi-dev
           - libjpeg-dev
           - libxml2-dev
           - libxmlsec1-dev
+          - libxmlsec1-openssl
           - libxslt-dev
           - libyaml-dev
           - libpq-dev
@@ -28,12 +30,14 @@
           - virtualenv
           - python3-setuptools
           - python3-devel
+          - pkg-config
           - gcc
           - gcc-c++
           - libffi-devel
           - libjpeg-turbo-devel
           - libxml2-devel
           - libxmlsec1-dev
+          - libxmlsec1-openssl
           - libxslt-devel
           - libyaml-devel
           - libpqxx-devel
@@ -54,10 +58,10 @@
       group: '{{ sentry_system_group }}'
       state: present
 
-- name: Check virtualenv path
-  ansible.builtin.shell:
-      cmd: ls -l /usr/bin
-      chdir: /usr/bin/
+# - name: Check virtualenv path
+#   ansible.builtin.shell:
+#       cmd: ls -l /usr/bin
+#       chdir: /usr/bin/
 
 - name: Create a virtualenv and install Sentry with pip
   ansible.builtin.pip:
