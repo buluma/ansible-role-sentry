@@ -28,7 +28,7 @@
     - name: Flush handlers so services are restarted before Sentry installation
       meta: flush_handlers
     - import_role:
-        name: sentry
+        name: duologic.sentry
       vars:
         sentry_db_user: 'sentry'
         sentry_secret_key: 'SAFE'
