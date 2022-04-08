@@ -21,3 +21,5 @@ skip_list:  # or 'skip_list' to silence them completely
   - fqcn-builtins  # Use FQCN for builtin actions.
   - no-changed-when  # Commands should not change things if nothing needs doing.
   - yaml  # Violations reported by yamllint.
+  - meta-no-info  # meta/main.yml should contain relevant info.
+  - package-latest  # Package installs should not use latest.
