@@ -5,6 +5,11 @@
   gather_facts: yes
   vars:
     sentry_secret_key: 'SAFE'
+    sentry_schedule_cleanup: false
+    sentry_cleanup_days: 30
+    sentry_system_cron_hour: 3
+    sentry_system_cron_minute: 0
+    sentry_system_user: 'sentry'
     GEOIP_PATH_MMDB: '/geoip/GeoLite2-City.mmdb'
 
   roles:
