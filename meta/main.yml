@@ -2,6 +2,8 @@
 galaxy_info:
   author: Michael Buluma
   description: Install Sentry on your system.
+  role_name: sentry
+  name_space: buluma
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
