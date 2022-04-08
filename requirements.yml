@@ -6,5 +6,6 @@ roles:
   - name: Duologic.postgresql_repository
   - name: geerlingguy.postgresql
   - name: Duologic.sentry
+  - name: buluma.buildtools
 collections:
   - name: community.general
