@@ -3,6 +3,8 @@
   hosts: all
   become: yes
   gather_facts: yes
+  vars:
+    sentry_secret_key: 'SAFE'
 
   roles:
     - role: ansible-role-sentry
