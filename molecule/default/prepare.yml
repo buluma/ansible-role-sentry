@@ -8,3 +8,7 @@
     - role: buluma.bootstrap
     - role: buluma.buildtools
     - role: buluma.cron
+    - role: duologic.postgresql_repository
+    - role: geerlingguy.redis
+    - role: geerlingguy.postgresql
+    - role: duologic.sentry
