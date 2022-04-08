@@ -143,6 +143,7 @@
         _virtualenv_extra is changed or
         _config_yml is changed or
         _sentry_conf_py is changed
+  ignore_errors: yes
 
 - name: Install cronjob to cleanup Sentry
   ansible.builtin.cron:
