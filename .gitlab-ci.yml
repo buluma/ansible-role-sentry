@@ -16,8 +16,10 @@ molecule:
     matrix:
       - image: "docker-ubuntu-systemd"
         tag: "bionic"
-      - image: "enterpriselinux"
-        tag: "7"
+      - image: "centos"
+        tag: "centos7"
+      - image: "centos"
+        tag: "centos8"
       - image: "debian-systemd"
         tag: "latest"
       - image: "debian-systemd"

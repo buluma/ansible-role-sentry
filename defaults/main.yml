@@ -5,7 +5,7 @@ sentry_system_user: 'sentry'
 sentry_system_group: 'sentry'
 sentry_system_cron_hour: 3
 sentry_system_cron_minute: 0
-sentry_extra_pip_packages: []
+sentry_extra_pip_packages: ['petname']
 
 # config.yml settigs
 sentry_mail_backend: 'dummy'
