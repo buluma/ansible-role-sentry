@@ -40,7 +40,7 @@
           - libxmlsec1-openssl
           - libxslt-devel
           - libyaml-devel
-          - libpqxx-devel
+          - libpq-dev
   register: task_result
   until: task_result is success
   retries: 10
