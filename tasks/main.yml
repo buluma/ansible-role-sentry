@@ -155,6 +155,7 @@
       minute: '{{ sentry_system_cron_minute }}'
       user: '{{ sentry_system_user }}'
   when: sentry_schedule_cleanup
+  ignore_errors: yes
 
 - name: Make sure the Sentry user is the owner
   ansible.builtin.file:

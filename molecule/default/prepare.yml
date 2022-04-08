@@ -7,3 +7,4 @@
   roles:
     - role: buluma.bootstrap
     - role: buluma.buildtools
+    - role: buluma.cron
