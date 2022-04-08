@@ -1,5 +1,5 @@
 ---
-sentry_version: '9.0.0'
+sentry_version: '21.6.3'
 sentry_install_dir: '/srv/sentry'
 sentry_system_user: 'sentry'
 sentry_system_group: 'sentry'
