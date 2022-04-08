@@ -17,14 +17,14 @@
         name: geerlingguy.postgresql
       vars:
         postgresql_hba_entries:
-            - {type: local, database: sentry, user: sentry, auth_method: trust}
-            - {type: local, database: all, user: postgres, auth_method: peer}
+          - {type: local, database: sentry, user: sentry, auth_method: trust}
+          - {type: local, database: all, user: postgres, auth_method: peer}
         postgresql_databases:
-            - name: sentry
+          - name: sentry
         postgresql_users:
-            - name: sentry
-              db: sentry
-              role_attr_flags: SUPERUSER
+          - name: sentry
+            db: sentry
+            role_attr_flags: SUPERUSER
     - name: Flush handlers so services are restarted before Sentry installation
       meta: flush_handlers
     - import_role:
@@ -33,4 +33,4 @@
         sentry_db_user: 'sentry'
         sentry_secret_key: 'SAFE'
         sentry_extra_pip_packages:
-            - 'sentry-plugins==9.0.0'
+          - 'sentry-plugins==9.0.0'
