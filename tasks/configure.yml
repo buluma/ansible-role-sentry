@@ -1,27 +1,27 @@
 ---
 # Remove Docker
 
-- name: Remove Docker, docker-engine, docker.io
-  apt:
-    name: "{{ item }}"
-    state: absent
-  with_items:
-    - docker
-    - docker-engine
-    - docker.io
-    - docker-compose
-  tags:
-    - never
-
-# Install packages
-
-- name: Update platform
-  apt:
-    upgrade: "yes"
-    update_cache: "yes"
-    cache_valid_time: "{{ apt_cache_valid_time|default(86400)|int }}"
-  when:
-    ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+# - name: Remove Docker, docker-engine, docker.io
+#   apt:
+#     name: "{{ item }}"
+#     state: absent
+#   with_items:
+#     - docker
+#     - docker-engine
+#     - docker.io
+#     - docker-compose
+#   tags:
+#     - never
+#
+# # Install packages
+#
+# - name: Update platform
+#   apt:
+#     upgrade: "yes"
+#     update_cache: "yes"
+#     cache_valid_time: "{{ apt_cache_valid_time|default(86400)|int }}"
+#   when:
+#     ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
 - name: Install python and pip
   apt:
