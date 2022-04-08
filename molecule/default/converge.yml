@@ -10,7 +10,7 @@
     - import_role:
         name: geerlingguy.redis
     - import_role:
-        name: Duologic.postgresql_repository
+        name: duologic.postgresql_repository
       vars:
         postgres_repo_version: '9.5'
     - import_role:
