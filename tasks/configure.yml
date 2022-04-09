@@ -48,16 +48,16 @@
     append: yes
   ignore_errors: "{{ ansible_check_mode }}"
 
-- name: Get Docker script file
-  get_url:
-    url: "{{ docker_sh_url }}"
-    dest: "{{ ansible_user_dir }}/get-docker.sh"
-    owner: "{{ ansible_ssh_user }}"
+# - name: Get Docker script file
+#   get_url:
+#     url: "{{ docker_sh_url }}"
+#     dest: "{{ ansible_user_dir }}/get-docker.sh"
+#     owner: "{{ ansible_ssh_user }}"
 
-- name: Install Docker
-  shell: |
-    sh {{ ansible_user_dir }}/get-docker.sh
-    rm {{ ansible_user_dir }}/get-docker.sh
+# - name: Install Docker
+#   shell: |
+#     sh {{ ansible_user_dir }}/get-docker.sh
+#     rm {{ ansible_user_dir }}/get-docker.sh
 
 - name: Install docker-compose package via pip
   pip:

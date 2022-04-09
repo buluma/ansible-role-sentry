@@ -24,4 +24,4 @@ sentry_admin_email: "admin@sentry.com"
 sentry_admin_password: "ADMIN"
 
 # Hanging
-ansible_ssh_user: "root"
+ansible_ssh_user: "ansible"

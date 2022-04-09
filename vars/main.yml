@@ -1,4 +1,4 @@
 ---
 # vars file for role_sentry
 
-ansible_ssh_user: "root"
+ansible_ssh_user: "ansible"
