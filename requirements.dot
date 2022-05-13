@@ -1,0 +1,21 @@
+digraph PhiloDilemma {
+  label = "Michael Buluma" ;
+  overlap=false
+  {
+    "sentry" [fillcolor=yellow style=filled penwidth=3]
+    "buluma.bootstrap" [fillcolor=green style=filled]
+    "duologic.postgresql_repository" [fillcolor=green style=filled]
+    "geerlingguy.redis" [fillcolor=green style=filled]
+    "geerlingguy.postgresql" [fillcolor=green style=filled]
+    "duologic.sentry" [fillcolor=green style=filled]
+    "buluma.buildtools" [fillcolor=green style=filled]
+    "buluma.cron" [fillcolor=green style=filled]
+  }
+  "sentry" -> "buluma.bootstrap"
+  "sentry" -> "duologic.postgresql_repository"
+  "sentry" -> "geerlingguy.redis"
+  "sentry" -> "geerlingguy.postgresql"
+  "sentry" -> "duologic.sentry"
+  "sentry" -> "buluma.buildtools"
+  "sentry" -> "buluma.cron"
+}
