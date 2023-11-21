@@ -5,4 +5,4 @@
 repository:
   description: Sentry installation with Python.
   homepage: https://buluma.github.io/
-  topics: system, monitoring, logging, ansible, molecule, tox, playbook, hacktoberfest
+  topics: system, monitoring, logging, ansible, molecule, tox, playbook
