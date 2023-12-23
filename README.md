@@ -2,9 +2,9 @@
 
 Sentry installation with Python.
 
-|GitHub|GitLab|Downloads|Version|Issues|Pull Requests|
-|------|------|-------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-sentry/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-sentry/actions/workflows/molecule.yml)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-sentry/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-sentry)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/buluma/sentry)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-sentry.svg)](https://github.com/buluma/ansible-role-sentry/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-sentry.svg)](https://github.com/buluma/ansible-role-sentry/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-sentry.svg)](https://github.com/buluma/ansible-role-sentry/pulls/)|
+|GitHub|Version|Issues|Pull Requests|
+|------|-------|------|-------------|
+|[![github](https://github.com/buluma/ansible-role-sentry/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-sentry/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-sentry.svg)](https://github.com/buluma/ansible-role-sentry/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-sentry.svg)](https://github.com/buluma/ansible-role-sentry/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-sentry.svg)](https://github.com/buluma/ansible-role-sentry/pulls/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -119,15 +119,15 @@ sentry_cleanup_days: 30
 
 The following roles are used to prepare a system. You can prepare your system in another way.
 
-| Requirement | GitHub | GitLab |
+| Requirement | GitHub | Version |
 |-------------|--------|--------|
-|[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Build Status GitHub](https://github.com/buluma/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/ansible-role-bootstrap/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-bootstrap)|
-|[duologic.postgresql_repository](https://galaxy.ansible.com/buluma/duologic.postgresql_repository)|[![Build Status GitHub](https://github.com/buluma/duologic.postgresql_repository/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/duologic.postgresql_repository/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/duologic.postgresql_repository/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/duologic.postgresql_repository)|
-|[geerlingguy.redis](https://galaxy.ansible.com/buluma/geerlingguy.redis)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.redis/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.redis/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/geerlingguy.redis/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/geerlingguy.redis)|
-|[geerlingguy.postgresql](https://galaxy.ansible.com/buluma/geerlingguy.postgresql)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.postgresql/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.postgresql/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/geerlingguy.postgresql/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/geerlingguy.postgresql)|
-|[duologic.sentry](https://galaxy.ansible.com/buluma/duologic.sentry)|[![Build Status GitHub](https://github.com/buluma/duologic.sentry/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/duologic.sentry/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/duologic.sentry/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/duologic.sentry)|
-|[buluma.buildtools](https://galaxy.ansible.com/buluma/buildtools)|[![Build Status GitHub](https://github.com/buluma/ansible-role-buildtools/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-buildtools/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/ansible-role-buildtools/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-buildtools)|
-|[buluma.cron](https://galaxy.ansible.com/buluma/cron)|[![Build Status GitHub](https://github.com/buluma/ansible-role-cron/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-cron/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/ansible-role-cron/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-cron)|
+|[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Build Status GitHub](https://github.com/buluma/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-bootstrap.svg)](https://github.com/shadowwalker/ansible-role-bootstrap)|
+|[duologic.postgresql_repository](https://galaxy.ansible.com/buluma/duologic.postgresql_repository)|[![Build Status GitHub](https://github.com/buluma/duologic.postgresql_repository/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/duologic.postgresql_repository/actions)|[![Version](https://img.shields.io/github/release/buluma/duologic.postgresql_repository.svg)](https://github.com/shadowwalker/duologic.postgresql_repository)|
+|[geerlingguy.redis](https://galaxy.ansible.com/buluma/geerlingguy.redis)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.redis/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.redis/actions)|[![Version](https://img.shields.io/github/release/buluma/geerlingguy.redis.svg)](https://github.com/shadowwalker/geerlingguy.redis)|
+|[geerlingguy.postgresql](https://galaxy.ansible.com/buluma/geerlingguy.postgresql)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.postgresql/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.postgresql/actions)|[![Version](https://img.shields.io/github/release/buluma/geerlingguy.postgresql.svg)](https://github.com/shadowwalker/geerlingguy.postgresql)|
+|[duologic.sentry](https://galaxy.ansible.com/buluma/duologic.sentry)|[![Build Status GitHub](https://github.com/buluma/duologic.sentry/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/duologic.sentry/actions)|[![Version](https://img.shields.io/github/release/buluma/duologic.sentry.svg)](https://github.com/shadowwalker/duologic.sentry)|
+|[buluma.buildtools](https://galaxy.ansible.com/buluma/buildtools)|[![Build Status GitHub](https://github.com/buluma/ansible-role-buildtools/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-buildtools/actions)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-buildtools.svg)](https://github.com/shadowwalker/ansible-role-buildtools)|
+|[buluma.cron](https://galaxy.ansible.com/buluma/cron)|[![Build Status GitHub](https://github.com/buluma/ansible-role-cron/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-cron/actions)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-cron.svg)](https://github.com/shadowwalker/ansible-role-cron)|
 
 ## [Context](#context)
 
@@ -167,7 +167,6 @@ If you find issues, please register them in [GitHub](https://github.com/buluma/a
 
 [Michael Buluma](https://buluma.github.io/)
 
-Please consider [sponsoring me](https://github.com/sponsors/buluma).
 
 ### [Special Thanks](#special-thanks)
 
